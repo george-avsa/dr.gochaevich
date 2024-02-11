@@ -1,0 +1,29 @@
+@import './fonts.scss';
+@import './reset.scss';
+@import './mixins.scss';
+@import './componentStyles.scss';
+
+html {
+    font-family: 'Monrope', sans-serif;
+    font-weight: 400;
+}
+
+#root {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 600;
+    font-family: 'Monrope', sans-serif;
+}

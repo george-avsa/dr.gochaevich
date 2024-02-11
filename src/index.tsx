@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import "./style.scss";
-import Union from './union.svg';
+import "./styles/style.scss";
+import App from './App';
 
-const App: React.FC = () => {
-  return <h1>Hello World!</h1>;
+
+const RootComponent: React.FC = () => {
+  return <App />;
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 
-root.render(<App />);
+root.render(<RootComponent />);

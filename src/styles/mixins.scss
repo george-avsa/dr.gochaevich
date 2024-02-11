@@ -1,0 +1,7 @@
+@mixin container {
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    padding: 0px 40px;
+    max-width: 1217px;
+}

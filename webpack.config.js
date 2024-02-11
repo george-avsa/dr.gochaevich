@@ -5,7 +5,8 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'auto',
   },
   mode: 'development',
   resolve: {
@@ -37,6 +38,15 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(mp4|png|jpe?g|gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[hash].[ext]"
+          }
+        }
       }
     ]
   },
