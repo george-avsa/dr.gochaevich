@@ -1,18 +1,69 @@
 .header {
-    @include container();
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
     position: absolute;
     top: 13px;
     height: 50px;
     left: 0;
+
+    &__logo-location {
+        display: flex;
+        align-items: flex-end;
+    
+        .location-text {
+            @include text-12;
+            opacity: .5;
+            margin-left: 24px;
+
+            text-decoration: underline;
+
+            margin-bottom: 6px;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        
+        &-button:not(:first-child) {
+            margin-left: 8px;
+        }
+    }
 }
 
 .header__wrapper {
+    @include container();
+
+    position: relative;
+
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    box-sizing: border-box;
+
     width: 100%;
     height: 100%;
 
-    backdrop-filter: blur(15px);
-    background-color: #fff;
-    opacity: .5;
     border-radius: 10px;
+    
+    * {
+        z-index: 2;
+    }
+    
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        backdrop-filter: blur(15px);
+        background-color: #fff;
+        opacity: .5;
+        border-radius: 10px;
+    }
 }

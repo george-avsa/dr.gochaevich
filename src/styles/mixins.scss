@@ -5,3 +5,13 @@
     padding: 0px 40px;
     max-width: 1217px;
 }
+
+@mixin text-12 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+@mixin text-link {
+    text-decoration: none;
+    color: #000;
+}
