@@ -1,3 +1,333 @@
+$side-offset-xs: vw(24, xs);
+$side-offset-md: vw(26, md);
+$side-offset-xl: vw(56, xl);
+$side-offset-xxl: vw(56, xxl);
+$side-offset-fhd: vw(76);
+
+@mixin media-breakpoint-up($name) {
+    @media (min-width: #{map-get($breakpoints, $name)}px) {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($name) {
+    @media (max-width: #{map-get($breakpoints, $name) - 1}px) {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-range($from, $to) {
+    @include media-breakpoint-up($from) {
+        @include media-breakpoint-down($to) {
+            @content;
+        }
+    }
+}
+
+@mixin with-option($modifierName, $modifierValue: null) {
+    @if $modifierValue {
+        &[data-#{$modifierName}=#{$modifierValue}] {
+            @content;
+        }
+    } @else {
+        &[data-#{$modifierName}] {
+            @content;
+        }
+    }
+}
+
+@mixin hover($includeActive: true) {
+    @media (hover: hover) {
+        &:hover#{if($includeActive, '', ':not(:active)')} {
+            @content;
+        }
+    }
+}
+
+@mixin hoverParent($parentSelector) {
+    @media (hover: hover) {
+        #{$parentSelector}:hover & {
+            @content;
+        }
+    }
+}
+
+//TODO: Формулу расчета шрифтов надо перепроверить
+@mixin rem-fluid($property, $mobile, $tablet-768, $desktop-1280, $desktop-1440, $desktop-1920) {
+    $mobile-rem: rem($mobile);
+    $tablet-768-rem: rem($tablet-768);
+    $desktop-1280-rem: rem($desktop-1280);
+    $desktop-1440-rem: rem($desktop-1440);
+    $desktop-1920-rem: rem($desktop-1920);
+
+    //mobile
+    #{$property}: $mobile-rem;
+
+    @media (min-width: 375px) {
+        #{$property}: calc(#{$mobile-rem} + (#{strip-unit($tablet-768-rem)} - #{strip-unit($mobile-rem)}) * ((100vw - #{rem(375)}) / (768 - 375)));
+
+        @media (max-height: 500px) {
+            #{$property}: $mobile-rem;
+        }
+    }
+
+    // tablet
+    @media (min-width: 768px) {
+        #{$property}: calc(#{$tablet-768-rem} + (#{strip-unit($desktop-1280-rem)} - #{strip-unit($tablet-768-rem)}) * ((100vw - #{rem(768)}) / (1280 - 768)));
+
+        @media (max-height: 500px) {
+            #{$property}: calc(#{$mobile-rem} + ((#{strip-unit($desktop-1920-rem)} * 0.7) - #{strip-unit($mobile-rem)}) * ((100vw - #{rem(768)}) / (1280 - 768)));
+        }
+    }
+
+    //min desk
+    @media (min-width: 1280px) {
+        #{$property}: calc(#{$desktop-1280-rem} + (#{strip-unit($desktop-1920-rem)} - #{strip-unit($desktop-1280-rem)}) * ((100vw - #{rem(1280)}) / (1920 - 1280)));
+
+        @media (max-height: 500px) {
+            #{$property}: calc(#{$mobile-rem} + ((#{strip-unit($desktop-1920-rem)} * 0.7) - #{strip-unit($mobile-rem)}) * ((100vw - #{rem(768)}) / (1920 - 768)));
+        }
+    }
+
+    //min 1440
+    @media (min-width: 1440px) {
+        #{$property}: calc(#{$desktop-1440-rem} + (#{strip-unit($desktop-1920-rem)} - #{strip-unit($desktop-1440-rem)}) * ((100vw - #{rem(1440)}) / (1920 - 1440)));
+
+        @media (max-height: 500px) {
+            #{$property}: calc(#{$mobile-rem} + ((#{strip-unit($desktop-1920-rem)} * 0.7) - #{strip-unit($mobile-rem)}) * ((100vw - #{rem(768)}) / (1920 - 768)));
+        }
+    }
+
+    // больше 1920
+    @media (min-width: 1920px) {
+        #{$property}: vw($desktop-1920);
+    }
+}
+
+@mixin rem-adaptive-font($mobile, $tablet-768, $desktop-1280, $desktop-1440, $desktop-1920) {
+    @include rem-fluid(font-size, $mobile, $tablet-768, $desktop-1280, $desktop-1440, $desktop-1920);
+}
+
+@mixin upper-fhd-size($base-size, $property: width, $coeff: 1) {
+    #{$property}: calc((#{$base-size / 1920 * 100 / 2}vw + #{$base-size / 1080 * 100 / 2}vh) * #{$coeff});
+}
+
+@mixin sides-offset($property: "padding") {
+    #{$property}-left: var(--offset-side);
+    #{$property}-right: var(--offset-side);
+}
+
+@mixin side-offset-single($property: "padding-left") {
+    #{$property}: var(--offset-side);
+}
+
+/* Адаптивные значения свойств для всех допустимых разрешений в единицах vw, с возможностью ограничить минимальным
+ и максимальным значением, если передать в качестве значения список из 3х элементов в порядке параметров функции clamp. */
+@mixin smooth-offset($property, $mobile, $tablet-md, $desktop-xl, $desktop-xxl, $desktop-fhd) {
+    @if $mobile {
+        @if length($mobile) == 3 {
+            $min: nth($mobile, 1);
+            $value: nth($mobile, 2);
+            $max: nth($mobile, 3);
+            #{$property}: clamp(#{$min}px, #{vw($value, xs)}, #{$max}px);
+        } @else {
+            #{$property}: vw($mobile, xs);
+        }
+    }
+
+    @if $tablet-md {
+        @include media-breakpoint-up(md) {
+            @if length($tablet-md) == 3 {
+                $min: nth($tablet-md, 1);
+                $value: nth($tablet-md, 2);
+                $max: nth($tablet-md, 3);
+                #{$property}: clamp(#{$min}px, #{vw($value, md)}, #{$max}px);
+            } @else {
+                #{$property}: vw($tablet-md, md);
+            }
+        }
+    }
+
+    @if $desktop-xl {
+        @include media-breakpoint-up(xl) {
+            @if length($desktop-xl) == 3 {
+                $min: nth($desktop-xl, 1);
+                $value: nth($desktop-xl, 2);
+                $max: nth($desktop-xl, 3);
+                #{$property}: clamp(#{$min}px, #{vw($value, xl)}, #{$max}px);
+            } @else {
+                #{$property}: vw($desktop-xl, xl);
+            }
+        }
+    }
+
+    @if $desktop-xxl {
+        @include media-breakpoint-up(xxl) {
+            @if length($desktop-xxl) == 3 {
+                $min: nth($desktop-xxl, 1);
+                $value: nth($desktop-xxl, 2);
+                $max: nth($desktop-xxl, 3);
+                #{$property}: clamp(#{$min}px, #{vw($value, xxl)}, #{$max}px);
+            } @else {
+                #{$property}: vw($desktop-xxl, xxl);
+            }
+        }
+    }
+
+    @if $desktop-fhd {
+        @include media-breakpoint-up(fhd) {
+            @if length($desktop-fhd) == 3 {
+                $min: nth($desktop-fhd, 1);
+                $value: nth($desktop-fhd, 2);
+                $max: nth($desktop-fhd, 3);
+                #{$property}: clamp(#{$min}px, #{vw($value)}, #{$max}px);
+            } @else {
+                #{$property}: vw($desktop-fhd);
+            }
+        }
+    }
+}
+
+/* Адаптивные значения свойств для всех допустимых разрешений в единицах vh, с возможностью ограничить минимальным
+ и максимальным значением, если передать в качестве значения список из 3х элементов в порядке параметров функции clamp. */
+@mixin smooth-offset-vh($property, $mobile, $tablet-md, $desktop-xl, $desktop-xxl, $desktop-fhd) {
+    @if $mobile {
+        @if length($mobile) == 3 {
+            $min: nth($mobile, 1);
+            $value: nth($mobile, 2);
+            $max: nth($mobile, 3);
+            #{$property}: clamp(#{$min}px, #{vh($value, xs)}, #{$max}px);
+        } @else {
+            #{$property}: vh($mobile, xs);
+        }
+    }
+
+    @if $tablet-md {
+        @include media-breakpoint-up(md) {
+            @if length($tablet-md) == 3 {
+                $min: nth($tablet-md, 1);
+                $value: nth($tablet-md, 2);
+                $max: nth($tablet-md, 3);
+                #{$property}: clamp(#{$min}px, #{vh($value, md)}, #{$max}px);
+            } @else {
+                #{$property}: vh($tablet-md, md);
+            }
+        }
+    }
+
+    @if $desktop-xl {
+        @include media-breakpoint-up(xl) {
+            @if length($desktop-xl) == 3 {
+                $min: nth($desktop-xl, 1);
+                $value: nth($desktop-xl, 2);
+                $max: nth($desktop-xl, 3);
+                #{$property}: clamp(#{$min}px, #{vh($value, xl)}, #{$max}px);
+            } @else {
+                #{$property}: vh($desktop-xl, xl);
+            }
+        }
+    }
+
+    @if $desktop-xxl {
+        @include media-breakpoint-up(xxl) {
+            @if length($desktop-xxl) == 3 {
+                $min: nth($desktop-xxl, 1);
+                $value: nth($desktop-xxl, 2);
+                $max: nth($desktop-xxl, 3);
+                #{$property}: clamp(#{$min}px, #{vh($value, xxl)}, #{$max}px);
+            } @else {
+                #{$property}: vh($desktop-xxl, xxl);
+            }
+        }
+    }
+
+    @if $desktop-fhd {
+        @include media-breakpoint-up(fhd) {
+            @if length($desktop-fhd) == 3 {
+                $min: nth($desktop-fhd, 1);
+                $value: nth($desktop-fhd, 2);
+                $max: nth($desktop-fhd, 3);
+                #{$property}: clamp(#{$min}px, #{vh($value)}, #{$max}px);
+            } @else {
+                #{$property}: vh($desktop-fhd);
+            }
+        }
+    }
+}
+
+@mixin hidden-native-scrollbar() {
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+}
+
+@mixin adaptiveHardValues($property, $mobile, $tablet-768, $desktop-1280, $desktop-1440, $desktop-1920, $rem: false) {
+    @if $mobile {
+        @if $rem {
+            #{$property}: rem($mobile);
+        } @else {
+            #{$property}: #{$mobile}px;
+        }
+    }
+
+    @if $tablet-768 {
+        @include media-breakpoint-up(md) {
+            @if $rem {
+                #{$property}: rem($tablet-768);
+            } @else {
+                #{$property}: #{$tablet-768}px;
+            }
+        }
+    }
+
+    @if $desktop-1280 {
+        @include media-breakpoint-up(xl) {
+            @if $rem {
+                #{$property}: rem($desktop-1280);
+            } @else {
+                #{$property}: #{$desktop-1280}px;
+            }
+        }
+    }
+
+    @if $desktop-1440 {
+        @include media-breakpoint-up(xxl) {
+            @if $rem {
+                #{$property}: rem($desktop-1440);
+            } @else {
+                #{$property}: #{$desktop-1440}px;
+            }
+        }
+    }
+
+    @if $desktop-1920 {
+        @include media-breakpoint-up(fhd) {
+            @if $rem {
+                #{$property}: rem($desktop-1920);
+            } @else {
+                #{$property}: vw($desktop-1920);
+            }
+        }
+    }
+}
+
+@mixin clamp-text($linesCount) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $linesCount;
+    line-clamp: $linesCount;
+    -webkit-box-orient: vertical;
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
 @mixin container {
     width: 90%;
     box-sizing: border-box;

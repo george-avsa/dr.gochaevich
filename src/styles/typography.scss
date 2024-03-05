@@ -1,0 +1,83 @@
+.h1-intro {
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 75%;
+}
+
+.h1 {
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 100%;
+    
+    // @include rem-adaptive-font(36, 66, 66, 75, 100);
+}
+
+.h2 {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 94%;
+    letter-spacing: -0.01em;
+}
+
+.h2-slim {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+}
+
+.h3 {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.01em;
+}
+
+.h4 {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.h5 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.h5-sm {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.text1 {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.text1-m {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+.text2 {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.text-button {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+.text-button18 {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+}
+
+.h1-intro, .h1, .h2, .h2-slim, .h3, 
+.h4, .h5-sm, .text1, .text1-m, .text2, 
+.text-button, .text-button18 {
+    font-family: 'Manrope', sans-serif;
+}

@@ -1,0 +1,53 @@
+.swiper-button {
+    $root: &;
+
+    display: flex;
+
+    text-decoration: none;
+
+    &--white {
+        #{$root}__content {
+            color: var(--black);
+            background: var(--white);
+        }
+
+        #{$root}__svg {
+            color: var(--white);
+        }
+        
+        #{$root}__arrow {
+            background: var(--black);
+        }
+    }
+    
+    &__svg {
+        color: var(--black);
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+
+        @extend .text-button;
+        color: var(--white);
+
+        padding: 4px 4px 4px 15px;
+        border-radius: 10px;
+        background: rgb(0,0,0);
+        background: var(--black-gradient);
+    }
+
+    &__arrow {
+        width: 38px;
+        height: 40px;
+
+        margin-left: 10px;
+        border-radius: 10px;
+
+        background-color: var(--white);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

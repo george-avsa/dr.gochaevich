@@ -1,14 +1,13 @@
 .header {
-    @media screen and (max-width: 1279px) {
-        // background-color: red;
-    }
+    
+    position: absolute;
+    z-index: 10;
 
     @include wrapper();
 
     width: 100%;
     display: flex;
 
-    position: absolute;
     top: 13px;
     height: 50px;
     left: 0;
