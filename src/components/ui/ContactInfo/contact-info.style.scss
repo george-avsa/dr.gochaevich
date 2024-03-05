@@ -1,0 +1,21 @@
+.contact-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 40px;
+
+    &__name {
+        @extend .text2;
+
+        color: var(--grey2);
+    }
+
+    &__link {
+        @extend .h5;
+        text-decoration: none;
+        color: var(--grey3);
+
+        margin-top: 4px;
+    }
+}
