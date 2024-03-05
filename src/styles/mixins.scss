@@ -1,9 +1,10 @@
 @mixin container {
-    width: 100%;
+    width: 90%;
     box-sizing: border-box;
     position: absolute;
     padding: 0px 40px;
     max-width: 1217px;
+    margin: 0 auto;
 }
 
 @mixin text-12 {
@@ -14,4 +15,8 @@
 @mixin text-link {
     text-decoration: none;
     color: #000;
+}
+
+@mixin wrapper {
+    width: 100%;
 }

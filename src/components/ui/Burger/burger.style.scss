@@ -1,0 +1,21 @@
+.burger {
+    display: none;
+    width: 28px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+    
+    @media screen and (max-width: 1024px) {
+        display: flex;
+    }
+
+    &__line {
+        width: 28px;
+        height: 3px;
+
+        background-color: #000;
+    }
+}
