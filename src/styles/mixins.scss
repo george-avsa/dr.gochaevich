@@ -329,9 +329,9 @@ $side-offset-fhd: vw(76);
 }
 
 @mixin container {
-    width: 90%;
+    width: 100%;
+    position: relative;
     box-sizing: border-box;
-    position: absolute;
     padding: 0px 40px;
     max-width: 1217px;
     margin: 0 auto;

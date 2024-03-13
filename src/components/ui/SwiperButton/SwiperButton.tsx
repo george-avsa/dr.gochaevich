@@ -8,7 +8,7 @@ type SwiperButton = {
 
 export default function SwiperButton(props: SwiperButton) {
   return (
-    <a className='swiper-button' href='#'>
+    <a className={`swiper-button ${props.color === 'white' ? 'swiper-button--white' : ''}`} href='#'>
       <div className='swiper-button__content'>
           <span>{props.children}</span>
           <div className="swiper-button__arrow">

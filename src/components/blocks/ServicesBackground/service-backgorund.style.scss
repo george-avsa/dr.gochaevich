@@ -1,0 +1,81 @@
+.services-bg {
+    $root: &;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    & > img {
+        filter: blur(3px);
+        mix-blend-mode: plus-darker;
+        opacity: 0.2;
+        // opacity: 0.2;
+    }
+
+    @include media-breakpoint-down(xl) {
+        position: relative;
+    }
+
+    
+    &--stomach {
+        #{$root}__image {
+            right: 290px;
+        }    
+        #{$root}__img {
+            object-position: -340px -70px;
+        }
+    }
+
+    
+    
+    &--body {
+        #{$root}__img {
+            object-position: -130px -70px;
+        }
+    }
+    
+    &--blefaroplasty {
+        height: 100%;
+        width: 100%;
+        
+        #{$root}__image {
+            // top: ;
+            right: unset;
+            left: 40px;
+        }
+
+        #{$root}__img {
+            object-position: center;
+        }
+
+        #{$root}__bg-image {
+            display: none;
+        }
+    }
+    
+    &--chest {
+        #{$root}__img {
+            object-position: -105px -60px;
+        }
+    }
+
+    &__image {
+        position: absolute;
+
+        width: 560px;
+        height: 500px;
+
+        top: 62.5px;
+        right: 115px;
+
+        border-radius: 20px;
+        
+        overflow: hidden;
+
+        background-color: var(--white);
+    }
+
+    &--hidden {
+        display: none;
+    }
+}
