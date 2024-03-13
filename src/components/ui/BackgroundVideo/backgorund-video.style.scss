@@ -1,11 +1,76 @@
 .background-video {
+    position: relative;
     width: 100vw;
     height: 100vh;   
-}
 
-.background-video__video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: right 40%;
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right 40%;
+
+        z-index: -1;
+    }
+
+    &__content {
+        @include container();
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+    }
+
+    &__title {  
+        @extend .h1;
+        
+        text-align: center;
+        color: var(--white);
+        mix-blend-mode: exclusion;
+
+        span {
+            @extend .h1-intro;
+        }
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            text-align: left;
+        }
+
+        @media screen and (max-width: 360px) {
+            font-size: 24px;
+            span {
+                font-size: 28px;
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+
+        margin-top: 30px;
+
+        & > a:not(:first-child) {
+            margin-left: 8px;
+        }
+        
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+
+            & > a:not(:first-child) {
+                margin-left: 0px;
+                margin-top: 8px;
+            }
+        }
+    }
 }

@@ -1,0 +1,32 @@
+.service-item {
+    cursor: pointer;
+
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+
+    &:not(:first-child) {
+        margin-top: 13px;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;    
+    }   
+
+    &__description {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    &__title {
+        @extend .h5;
+    }
+
+    &__description {
+        @extend .text1;
+
+        line-height: 140%;
+        color: #565657;
+    }
+}

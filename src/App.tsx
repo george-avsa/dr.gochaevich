@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/blocks/Header/Header'
 import BackgroundVideo from './components/ui/BackgroundVideo/BackgroundVideo'
 import MobileMenu from './components/blocks/MobileMenu/MobileMenu'
+import Services from './components/sections/Services/Services'
 
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
       <Header />
       <MobileMenu/>
       <BackgroundVideo />
+      <Services></Services>
     </>
   )
 }
