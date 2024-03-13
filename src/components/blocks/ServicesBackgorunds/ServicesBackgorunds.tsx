@@ -4,6 +4,8 @@ import bodyImage from './../../../assets/images/services/png/body.png';
 import stomachImage from './../../../assets/images/services/png/stomach.png';
 import blefaroplastyImage from './../../../assets/images/services/png/blefaroplasty.png';
 import ServicesBackgorund from '../ServicesBackground/ServicesBackgorund';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
 
 export type Backgorund = {
   type: string,
@@ -36,10 +38,12 @@ const backgorunds: Backgorund[] = [
 
 export default function ServicesBackgorunds() {
 
+  const services = useSelector((state: RootState) => state.services);
+
   return (
     <>
-      {backgorunds.map(backgorund => (
-        <ServicesBackgorund backgorund={backgorund} key={backgorund.image}></ServicesBackgorund>
+      {services.map(service => (
+        <ServicesBackgorund service={service} key={service.image.image}></ServicesBackgorund>
       ))}
     </>
   )
