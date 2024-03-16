@@ -16,6 +16,8 @@
     font-size: 64px;
     line-height: 94%;
     letter-spacing: -0.01em;
+
+    @include rem-adaptive-font(32, 40, 40, 48, 64);
 }
 
 .h2-slim {
@@ -23,13 +25,14 @@
     font-size: 48px;
     line-height: 125%;
     letter-spacing: -0.01em;
+    @include rem-adaptive-font(32, 40, 40, 48, 48);
 }
 
 .h3 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 40px;
     line-height: 100%;
-    letter-spacing: -0.01em;
+    @include rem-adaptive-font(32, 36, 36, 40, 40);
 }
 
 .h4 {
@@ -50,6 +53,7 @@
 .text1 {
     font-weight: 400;
     font-size: 14px;
+    line-height: 120%;
 }
 
 .text1-m {
@@ -67,12 +71,16 @@
     font-weight: 500;
     font-size: 14px;
     letter-spacing: -0.01em;
+
+    @include rem-adaptive-font(13, 14, 14, 14, 14);
 }
 
 .text-button18 {
     font-weight: 500;
     font-size: 18px;
     letter-spacing: -0.01em;
+
+    @include rem-adaptive-font(14, 16, 16, 16, 18);
 }
 
 .h1-intro, .h1, .h2, .h2-slim, .h3, 
