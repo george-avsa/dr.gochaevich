@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
 
 import chestImage from './../assets/images/services/png/chest.png';
 import bodyImage from './../assets/images/services/png/body.png';

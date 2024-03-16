@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Backgorund } from '../ServicesBackgorunds/ServicesBackgorunds';
 import { Service } from '../../../store/services';
+import gsap from "gsap";
 
 type ServiceBackgorund = {
   service: Service;
@@ -25,8 +25,16 @@ export default function ServicesBackgorund({service}: ServiceBackgorund) {
     }, 2);
     }, []);
 
+    useEffect(() => {
+      const tl = gsap.timeline();
+      if (service.active) {
+        tl.to(bgRef.current, {opacity: 1, duration:1});
+      } else {
+        tl.to(bgRef.current, {opacity: 0, duration:1});
+      }
+    }, [service.active]);
+
   return (
-    // <div ref={bgRef} className={`services-bg services-bg--${service.image.type} ${!service.active ? 'services-bg--hidden': ''}`}>
     <div ref={bgRef} className={`services-bg services-bg--${service.image.type} ${!service.active ? 'services-bg--hidden': ''}`}>
       {service.image.type !== 'blefaroplasty' && <img src={service.image.image} alt="" className='services-bg-image' />}
       <div className="services-bg__image" ref={imgRef}>

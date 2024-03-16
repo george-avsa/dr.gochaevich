@@ -1,0 +1,27 @@
+.block-tittle {
+    $root: &;
+
+    @extend .h2;
+
+    width: 600px;
+
+    background: linear-gradient(248deg, #97a4a6 0%, #3d4041 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    @include media-breakpoint-down(xl) {
+        width: 100%;
+    }
+    
+    span {
+        @extend .h2-slim;
+        
+        background-clip: initial;
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+
+        color: var(--grey);
+    }
+}

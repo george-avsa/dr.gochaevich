@@ -1,5 +1,6 @@
-import React, { Dispatch } from 'react';
+import React, { Dispatch, useEffect, useRef } from 'react';
 import MoreIcon from '../MoreIcon/MoreIcon';
+import gsap from 'gsap';
 import { useDispatch } from 'react-redux';
 import { changeActive } from '../../../store/services';
 import { AppDispatch } from '../../../store';
@@ -14,9 +15,22 @@ export default function ServiceItem(props: ServiceItemProps) {
 
   const dispatch: AppDispatch = useDispatch();
 
+  const serviceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    if (props.active) {
+      tl.to(serviceRef.current, {height: "auto", paddingTop: 12 , paddingBottom: 12, duration: .4});
+      tl.to(serviceRef.current, {autoAlpha: 1, duration: .4});
+    } else {
+      tl.to(serviceRef.current, {autoAlpha: 0, height: 0, padding: 0, duration: .4});
+    }
+  }, [props.active]);
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const divTarget = e.currentTarget.closest('[data-content]') as HTMLElement;
     const titleTarget =  divTarget.dataset.content;
+    gsap.to('.services-bg-mobile', {opacity: 0, duration: .2});
     dispatch(changeActive(titleTarget));
   }
 
@@ -28,7 +42,7 @@ export default function ServiceItem(props: ServiceItemProps) {
         </h5>
         <MoreIcon active={props.active}/>
       </div>
-      {props.active && <p className='service-item__description'>{props.description}</p>}
+      <div className='service-item__description' ref={serviceRef}>{props.description}</div>
     </div>
   )
 }

@@ -1,0 +1,23 @@
+.tittle-button {
+    $root: &;
+
+    @extend .text-button18;
+
+    padding: 5px 10px;
+
+    color: var(--white);
+    background-color: var(--grey3);
+    border-radius: 8px;
+
+    float: left;
+    
+    margin-right: 10px;
+    
+    &--h2 {
+        @include adaptiveHardValues(margin-top, 0, 0, 6, 14, 20);
+    }
+    
+    &--h3 {
+        @include adaptiveHardValues(margin-top, 0, 0, 6, 6, 6);
+    }
+}

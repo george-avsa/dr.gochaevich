@@ -11,6 +11,10 @@
 
     background: var(--light-grey);
 
+    @include media-breakpoint-down(xl) {
+        height: auto;
+    }
+
     &__wrapper {
         @include container();
         height: 100%;
@@ -18,10 +22,21 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-    }
 
+        @include media-breakpoint-down(xl) {
+            justify-content: space-between;
+        }
+    }
+    
     &__content {
         width: 500px;
+
+        @include media-breakpoint-down(xl) {
+            width: 100%;
+            margin-top: 65px;
+
+            padding-bottom: 50px;
+        }
     }
     
     &__image {
