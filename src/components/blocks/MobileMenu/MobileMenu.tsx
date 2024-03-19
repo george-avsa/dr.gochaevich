@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Location from './../../../assets/icons/location.svg';
 import ContactInfo from '../../ui/ContactInfo/ContactInfo';
 import SwiperButton from '../../ui/SwiperButton/SwiperButton';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+
+function toPX(value: string) {
+  return parseFloat(value) / 100 * (/vh/gi.test(value) ? window.innerHeight : window.innerWidth);
+}
+
+import gsap from 'gsap';
 
 export default function MobileMenu() {
+
+  const mobileMenuVisibility = useSelector((state: RootState) => state.uiStates.mobileMenu);
+
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (mobileMenuVisibility) {
+      gsap.fromTo(mobileMenuRef.current, {left: toPX('100vw')}, {left: 0, duration: .5});
+    } else {
+      gsap.to(mobileMenuRef.current, {left: toPX('100vw'), duration: .5});
+    }
+  }, [mobileMenuVisibility]);
+
   return (
-    <div className='mobile-menu'>
+    <div className='mobile-menu' ref={mobileMenuRef}>
       <div className="mobile-location">
           <Location className='mobile-location__icon' />
           <p className='mobile-location__text'>

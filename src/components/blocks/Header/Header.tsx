@@ -3,10 +3,15 @@ import Logo from './../../../assets/icons/logo.svg';
 import Navigation from '../Navigation/Navigation';
 import Button from '../../ui/Button/Button';
 import Burger from '../../ui/Burger/Burger';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
 
 export default function Header() {
+
+  const mobileMenuVisibility = useSelector((state: RootState) => state.uiStates.mobileMenu);
+
   return (
-    <header className='header'>
+    <header className='header' style={{position: mobileMenuVisibility ? 'fixed' : 'absolute'}}>
       <div className="header__wrapper">
         <div className="header__logo-location">
           <Logo />
