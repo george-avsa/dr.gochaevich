@@ -7,7 +7,7 @@ type BlockTittle = {
 
 export default function BlockTittle(props: BlockTittle) {
   return (
-    <h2 className={`block-tittle ${props.className}`}>
+    <h2 className={`block-tittle ${props.className ? props.className : ''}`}>
       {props.children}
     </h2>
   )

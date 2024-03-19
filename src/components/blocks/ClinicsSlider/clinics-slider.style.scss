@@ -1,0 +1,147 @@
+.clinics-slider {
+    width: 100%;
+    height: 170px;
+    position: relative;
+
+    & > img {
+        display: none;
+        
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+
+        @include media-breakpoint-down(xl) {
+            display: block;
+        }
+    }
+
+    margin-top: 40px;
+
+    @include media-breakpoint-down(xl) {
+        height: unset;
+    }
+
+    &__button {
+        position: absolute;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: -170px;
+        padding: 10px 0;
+        transform-origin: top right;
+        background-color: var(--grey3);
+        transform: rotate(270deg);
+
+        color: var(--white);
+
+        float: left;
+
+        border-radius: 8px;
+
+        @include media-breakpoint-down(xl) {
+            position: relative;
+            left: unset;
+            top: unset;
+            transform: rotate(0deg);
+            width: 100%;
+
+            margin-top: -10px;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+
+        box-sizing: border-box;
+        padding-left: 50px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 11px;
+
+        @include media-breakpoint-down(xl) {
+            padding-left: 0px;
+            margin-top: 11px;
+            
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__item {
+    }
+}
+
+.clinics-slider-item {
+    display: flex;
+    background-color: var(--grey7);
+    border-radius: 20px;
+    
+    @include media-breakpoint-down(xl) {
+        padding-left: 0px;
+        margin-top: 11px;
+        flex-direction: column;
+    }
+
+    &__image {
+        width: 220px;
+
+        @include media-breakpoint-down(xl) {
+            width: 100%;
+            height: 300px;
+        }
+
+        @include media-breakpoint-down(md) {
+            height: 160px;
+        }
+        
+        & > img {
+            width: 100%;
+            border-radius: 20px;
+
+            @include media-breakpoint-down(xl) {
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 0 10px 0 30px;
+
+        @include media-breakpoint-down(xl) {
+            padding: 16px;
+        }
+    }
+
+    &__name {
+        @extend .h5-sm;
+        color: var(--grey3);
+    }
+}
+
+.clinic-address {
+    margin-top: 10px;
+    display: flex;
+
+    &__icon {
+        color: var(--grey3);
+    }
+
+    &__text {
+        @extend .text1-m;
+        color: var(--grey3);
+
+        margin-left: 6px;
+        text-decoration: underline;
+
+        line-height: 140%;
+    }
+}

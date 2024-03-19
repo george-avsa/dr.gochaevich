@@ -1,5 +1,42 @@
 .medical-ward {
     $root: &;
+    background-color: #FBFBFB;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 70px;
     
+    &__content {
+        @include container();
+    }
+
+    &__title {
+       & .block-tittle {
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            float: left;
+            margin-top: 10px;
+        }
+
+        & span {
+            width: 100%;
+            display: inline-block;
+
+            @include media-breakpoint-down(md) {
+                display: inline;
+            }
+        }
+       } 
+    }
     
+    &__bg {
+        position: absolute;
+
+        top: 180px;
+        right: 120px;
+        transform: rotate(24deg);
+    }   
 }

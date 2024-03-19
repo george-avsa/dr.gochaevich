@@ -1,0 +1,46 @@
+.clinics {
+    position: relative;
+    z-index: 150;
+
+    width: 100%;
+    padding: 60px 0 24px 0;
+
+    border-radius: 60px;
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    &__content {
+        @include container();
+    }
+
+    &__tittle {
+        margin-top: 14px;
+    }
+    
+    &__name {
+        @extend .h2-slim;
+        color: var(--grey);
+        margin-top: 12px;
+    }
+    
+    &__description {
+        @extend .text1;
+        
+        color: var(--light-grey2);
+        margin-top: 22px;
+
+        max-width: 610px;
+    }
+
+    &__bg {
+        position: absolute;
+        bottom: -5px;
+        right: 0;
+
+        & > img {
+            @include adaptiveHardValues(width, 0, 0, 400, 500, 500);
+        }
+    }
+}

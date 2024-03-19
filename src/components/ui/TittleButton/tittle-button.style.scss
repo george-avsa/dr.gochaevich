@@ -14,7 +14,7 @@
     margin-right: 10px;
     
     &--h2 {
-        @include adaptiveHardValues(margin-top, 0, 0, 6, 14, 20);
+        @include adaptiveHardValues(margin-top, 0, 0, 6, 20, 20);
     }
     
     &--h3 {

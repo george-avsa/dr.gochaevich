@@ -1,0 +1,11 @@
+.ward-card-button {
+    $root: &;
+
+    @extend .text-button;
+
+    background: var(--grey5);
+
+    padding: 10px 20px;
+
+    border-radius: 60px;
+}
