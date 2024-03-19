@@ -1,0 +1,60 @@
+.consultation {
+    position: relative;
+
+    @include adaptiveHardValues(padding-top, 110, 160, 160, 160, 190);
+
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    @include media-breakpoint-down(xl) {
+        min-height: unset;
+    }
+
+    background: var(--white);
+
+    &__content {
+        @include container();
+    }
+
+    &__tittle > span {
+        line-height: 80%;
+    }
+
+    &__description {
+        @extend .text1;
+        
+        color: var(--light-grey2);
+
+        margin-top: 22px;
+
+        max-width: 360px;
+    }
+
+    &__button {
+        margin-top: 22px;
+    }
+
+    &__bg {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        @include media-breakpoint-down(xl) {
+            width: 100vw;
+            position: relative;
+        }
+
+        & img {
+            width: 100%;
+            @include adaptiveHardValues(width, false, false, 800, 800, 1000);
+            
+            @include media-breakpoint-down(md) {
+                margin-top: 20px;
+            }
+
+            @include media-breakpoint-down(xs) {
+                margin-top: 12px;
+            }
+        }
+    }
+}

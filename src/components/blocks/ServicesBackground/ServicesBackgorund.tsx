@@ -12,17 +12,22 @@ export default function ServicesBackgorund({service}: ServiceBackgorund) {
   const bgRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-        const contentElement = document.querySelector('.services__content') as HTMLElement;
+    function placeBackgorund () {
+      setTimeout(() => {
+        const contentElement = document.querySelector('.services__wrapper') as HTMLElement;
         
         const bgElement = bgRef.current as HTMLElement;
         const imgElement = imgRef.current as HTMLElement;
         
         const leftContent = Number.parseInt(getComputedStyle(contentElement).marginLeft) || 0;
-
+        
         const leftImg = Number.parseInt(getComputedStyle(imgElement).left) || 0;
         bgElement.style.left = `${(40 + leftContent) - leftImg}px`;
-    }, 2);
+      }, 2);
+    }
+
+    placeBackgorund();
+    document.addEventListener('resize', placeBackgorund);
     }, []);
 
     useEffect(() => {
