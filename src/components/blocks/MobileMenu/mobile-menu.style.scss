@@ -1,5 +1,5 @@
 .mobile-menu {
-    display: none !important;
+    // display: none !important;
 
     @include container();
 
@@ -24,6 +24,8 @@
 
     display: flex;
     flex-direction: column;
+
+    z-index: 300;
 
     &__button {
         flex-grow: 2;
