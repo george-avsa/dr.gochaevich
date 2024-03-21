@@ -19,7 +19,14 @@ export default function Consultation() {
         Предлагаем консультацию на которой составим план работы, 
         создадим 3д визуализацию будущих изменений и ответим на все ваши вопросы 
       </p>
-      <SwiperButton color='black' className='consultation__button'>
+      <SwiperButton 
+        color='black' 
+        className='consultation__button'
+        link={{
+          href: 'https://wa.me/79260387171',
+          target: '_blank'
+        }}
+      >
         Записаться на консультацию
         </SwiperButton>
       </div>
@@ -27,7 +34,6 @@ export default function Consultation() {
           <picture>
             <source media="(min-width: 1280px)" srcSet={Image} type='image/png' />
             <source media="(min-width: 767px)" srcSet={ImageMd} type='image/png' />
-            {/* <img src={resultIphones} srcSet="width:auto;" /> */}
             <img src={ImageSm} alt="" />
           </picture>
         </div>

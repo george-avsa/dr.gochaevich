@@ -5,6 +5,11 @@ type SwiperButton = {
   color: 'black' | 'white',
   children: string,
   className?: string,
+  link?: {
+    href: string,
+    target?: '_blank'
+  },
+  handleClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void,
 }
 
 export default function SwiperButton(props: SwiperButton) {
@@ -15,7 +20,9 @@ export default function SwiperButton(props: SwiperButton) {
         ${props.color === 'white' ? 'swiper-button--white' : ''}
         ${props.className ? props.className : ''}
       `} 
-      href='#'
+      href={props.link?.href ? props.link.href : undefined}
+      target={props.link?.target ? props.link.target : undefined}
+      onClick={props.handleClick}
     >
       <div className='swiper-button__content'>
           <span>{props.children}</span>

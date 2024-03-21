@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import ServiceItem from '../../ui/ServiceItem/ServiceItem'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../../store'
+import React, { useEffect, useState } from 'react';
+import ServiceItem from '../../ui/ServiceItem/ServiceItem';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+
+import gsap from 'gsap';
 
 export type Service = {
   active: boolean, 

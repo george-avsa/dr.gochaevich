@@ -6,7 +6,7 @@ import ServicesBackgorundMobile from '../../blocks/ServicesBackground/ServicesBa
 
 export default function Services() {
   return (
-    <div className='services'>
+    <div className='services' id='services'>
       <ServicesBackgorunds></ServicesBackgorunds>
       <div className="services__wrapper">
         <div className="services__content">
