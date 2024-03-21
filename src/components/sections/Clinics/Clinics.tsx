@@ -6,12 +6,12 @@ import ClinicsSlider from '../../blocks/ClinicsSlider/ClinicsSlider';
 
 export default function Clinics() {
   return (
-    <div className='clinics'>
+    <div className='clinics' id='clinics'>
       <div className="clinics__bg">
         <img src={ZurabImage} alt="" />
       </div>
       <div className="clinics__content">
-        <LogoIcon/>
+        <LogoIcon style={{color: '#3E4041'}} />
         <BlockTittle className='clinics__tittle'>
             <>Ведущий хирург</>
         </BlockTittle>

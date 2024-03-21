@@ -20,10 +20,10 @@ export default function ServiceItem(props: ServiceItemProps) {
   useEffect(() => {
     const tl = gsap.timeline();
     if (props.active) {
-      tl.to(serviceRef.current, {height: "auto", paddingTop: 12 , paddingBottom: 12, duration: .4});
-      tl.to(serviceRef.current, {autoAlpha: 1, duration: .4});
+      tl.to(serviceRef.current, {height: "auto", paddingTop: 12 , paddingBottom: 12, duration: .2});
+      tl.to(serviceRef.current, {autoAlpha: 1, duration: .2});
     } else {
-      tl.to(serviceRef.current, {autoAlpha: 0, height: 0, padding: 0, duration: .4});
+      tl.to(serviceRef.current, {autoAlpha: 0, height: 0, padding: 0, duration: .2});
     }
   }, [props.active]);
 

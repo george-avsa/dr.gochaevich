@@ -48,7 +48,7 @@ export default function FAQ() {
   const swiperElementRef = useRef<HTMLElement | null>(null);
 
   return (
-      <div className='faq'>
+      <div className='faq' id='faq'>
         <div className='faq__title-block'>
           <TittleButton type='h2'>FaQ</TittleButton>
           <BlockTittle className='faq__tittle'>
@@ -103,7 +103,7 @@ export default function FAQ() {
                 <PlayIcon />
               </div>
             </div>
-            <video src={`/reels/${video}`} autoPlay={false} loop>
+            <video src={`/reels/${video}`} autoPlay={false} loop playsInline>
             </video>
           </div>
         </SwiperSlide> 

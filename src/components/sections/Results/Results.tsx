@@ -54,7 +54,7 @@ export default function Results() {
             ))}
           </div>
         </div>
-        <div className='vizualisation'>
+        <div className='vizualisation' id='vizualisation'>
           <div className='vizualisation__bg'>
             <img src={resultVizualisation} alt="" />
             <div className='vizualisation__image'>
@@ -69,10 +69,17 @@ export default function Results() {
             <p className='vizualisation__description'>
               Наши консультации - это путь к ясному видению будущих изменений. С помощью передовых 3D визуализаций, мы даем вам возможность заглянуть в будущее и увидеть свой идеальный облик еще до операции.
             </p>
-            <SwiperButton className="vizualisation__button" color='black'>Записаться на консультацию</SwiperButton>
+            <SwiperButton 
+              className="vizualisation__button" 
+              color='black'
+              link={{
+                href: 'https://wa.me/79260387171',
+                target: '_blank'
+              }}
+            >Записаться на консультацию</SwiperButton>
           </div>
         </div>
-        <div className="results-block">
+        <div className="results-block" id='results'>
           <div>
             <TittleButton type='h3'>опыт</TittleButton>
             <h3 className='results-block__title'>
@@ -81,7 +88,14 @@ export default function Results() {
             <p className='results-block__description'>
               Наша практика насчитывает более 100 успешных операций. Доказываем нашу способность сотворять желанные образы в социальных сетях.
             </p>
-            <SwiperButton color='black' className='results-block__button'>Смотреть больше работ в Instagram*</SwiperButton>
+            <SwiperButton 
+              color='black' 
+              className='results-block__button'
+              link={{
+                href: 'https://www.instagram.com/dr.gochaevich/',
+                target: '_blank'
+              }}
+            >Смотреть больше работ в Instagram*</SwiperButton>
           </div>
           <p className="results-block__footnote">
             *принадлежит компании Meta, является террористической организацией
@@ -89,10 +103,8 @@ export default function Results() {
           <div className="results-block__bg">
             <picture>
               <source media="(min-width: 500px)" srcSet={resultIphones} type='image/png' />
-              {/* <img src={resultIphones} srcSet="width:auto;" /> */}
               <img src={resultIphonesMobile} alt="" />
             </picture>
-            {/* <img src={resultIphones} alt="" /> */}
           </div>
         </div>
       </div>

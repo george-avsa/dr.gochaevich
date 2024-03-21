@@ -185,6 +185,10 @@
             left: 0;
             width: 100%;
         }
+
+        @include media-breakpoint-down(md) {
+            height: 250px;
+        }
         
         & > img {
             object-position: 20px -26px;
@@ -193,6 +197,10 @@
                 
                 object-fit: cover;
                 object-position: 50% 50%;
+            }
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
             }
         }
     }

@@ -31,6 +31,8 @@
 
     &__title {  
         @extend .h1;
+
+        transform: translate3d(0,0,0);
         
         text-align: center;
         color: var(--white);

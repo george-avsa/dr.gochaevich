@@ -3,7 +3,7 @@
 
     @include container();
 
-    padding-bottom: 38px;
+    padding-bottom: 138px;
 
     @include media-breakpoint-up(xl) {
         display: none;
@@ -13,10 +13,12 @@
     top: 0;
     left: 0;
 
+    bottom: 0;
+
     z-index: 5;
 
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
     background-color: var(--white);
 
@@ -26,6 +28,8 @@
     flex-direction: column;
 
     z-index: 300;
+
+    overflow: scroll;
 
     &__button {
         flex-grow: 2;
@@ -68,6 +72,10 @@
     &__item {
         display: inline-block;
 
+        a {
+            cursor: pointer;
+        }
+        
         &:first-child {
             a {
                 background: linear-gradient(248deg, #97a4a6 0%, #3d4041 100%);

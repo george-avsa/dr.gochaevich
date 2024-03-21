@@ -3,6 +3,8 @@ import React from 'react';
 import WardIcon from './../../../assets/icons/ward.svg';
 import WardCardButton from '../../ui/WardCardButton/WardCardButton';
 import MedicalCard1 from './../../../assets/images/medical-ward/png/medical-ward1.png';
+import {Autoplay} from 'swiper/modules';
+
 import 'swiper/css';
 
 export default () => {
@@ -12,16 +14,25 @@ export default () => {
     <Swiper
       spaceBetween={50}
       slidesPerView={1}
+      loop
+      autoplay={{
+        delay: 5000
+      }}
       breakpoints={{
         450: {
           slidesPerView: 1.2,
-          spaceBetween: 16
+          spaceBetween: 16,
+          loop: false,
+          autoplay: false,
         },
         768: {
           slidesPerView: 'auto',
-          spaceBetween: 16
+          spaceBetween: 16,
+          loop: false,
+          autoplay: false,
         }
       }}
+      modules={[Autoplay]}
       className='medical-ward-slider__slider'
     >
       {[1, 2 ,3].map(smth => (
