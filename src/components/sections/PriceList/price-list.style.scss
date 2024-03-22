@@ -1,0 +1,152 @@
+.price-list {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 170px;
+    
+    background-color: #F5F6F8;
+
+    &__content {
+        @include container();
+        display: flex;
+        gap: 46px;
+    }
+
+    &__type-title {
+        @extend .h3;
+        
+        margin-top: 50px;
+        margin-bottom: 30px;
+
+        background: linear-gradient(248deg, #97a4a6 0%, #3d4041 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__list {
+        flex-grow: 1;
+    }
+}
+
+.price-list-menu {
+    width: 230px;
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+
+    &:not(:first-child) {
+        margin-top: 10px;
+    }
+    
+    &__item {
+        @extend .h5;
+
+        line-height: 200%;
+
+        color: #101010;
+
+        background-color: var(--white);
+
+        border-radius: 7px;
+
+        cursor: pointer;
+
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 15px;
+
+        &:not(:first-child) {
+            margin-top: 5px;
+        }
+    }
+}
+
+.price-list-item {
+    $root: &;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;  
+
+    cursor: pointer;
+
+    @include media-breakpoint-down(md) {
+        padding: 10px 0 20px 0;
+
+        border-bottom: 1px solid #d2d2d2;
+    }
+
+    &__disclaimer {
+        @extend .text-price-disclaimer;
+        color: #3d4041;
+    }
+
+    &__name {
+
+        @extend .text-price-name;
+        color: #8c8c8c;
+        
+        transition: all .3s ease-in;
+
+        @include media-breakpoint-down(md) {
+            line-height: 140%;
+        }
+    }
+    
+    &__price {
+        display: flex;
+        align-items: center;
+
+        @extend .text-price;
+        color: #8c8c8c;
+        
+        transition: all .3s ease-in;
+    }
+    
+    &__separator {
+        height: 1px;
+        flex-grow: 1;
+        background: #000;
+        opacity: 0;
+
+        width: 0px;
+        
+        transition: all .3s ease-in;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    &__ruble-icon {
+        transition: all .3s ease-in;
+        
+        transform: scale(67%);
+        margin-left: 2px;
+        margin-bottom: 3px;
+        
+        @include media-breakpoint-up(xl) {
+            transform: scale(80%);
+            margin-left: 6px;
+            margin-bottom: 4px;
+        }
+
+        @include media-breakpoint-up(fhd) {
+            transform: scale(100%);
+            margin-left: 6px;
+            margin-bottom: 6px;
+        }
+    }
+    
+    &:hover {
+        #{$root}__name, #{$root}__price, #{$root}__ruble-icon {
+            color: #000;
+        }
+        
+        #{$root}__separator {
+            opacity: 1;
+        }
+    }
+}

@@ -6,9 +6,9 @@ import Image from './../../../assets/images/consultation/png/consultation.png';
 import ImageMd from './../../../assets/images/consultation/png/consultation-md.png';
 import ImageSm from './../../../assets/images/consultation/png/consultation-xs.png';
 
-export default function Consultation() {
+export default function Consultation(props: {color?: string}) {
   return (
-    <div className='consultation'>
+    <div className={`consultation ${props.color === 'grey' ? 'consultation--grey' : ''}`}>
       <div className='consultation__content'>
 
       <TittleButton type='h2'>консультация</TittleButton>

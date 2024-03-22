@@ -63,4 +63,18 @@
 
         margin-top: 30px;
     }
+
+    &__button {
+        display: inline-block;
+        @extend .text-button;
+
+        cursor: pointer;
+
+        margin-top: 33px;
+
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: var(--white);
+        background: linear-gradient(92deg, #000 0%, #000 97.71%);
+    }
 }

@@ -1,30 +1,19 @@
 import React from 'react'
-import Header from './components/blocks/Header/Header'
-import BackgroundVideo from './components/ui/BackgroundVideo/BackgroundVideo'
-import MobileMenu from './components/blocks/MobileMenu/MobileMenu'
-import Services from './components/sections/Services/Services'
-import Results from './components/sections/Results/Results'
-import MedicalWard from './components/sections/MedicalWard/MedicalWard'
-import Clinics from './components/sections/Clinics/Clinics'
-import Consultation from './components/sections/Consultation/Consultation'
-import 'swiper/css';
-import FAQ from './components/sections/FAQ/Faq'
-import Footer from './components/sections/Footer/Footer'
+import { Route, Routes } from 'react-router-dom'
+import Main from './components/pages/Main'
+import Layout from './components/pages/Layout'
+import Prices from './components/pages/Prices'
 
 
 export default function App() {
+
   return (
-    <>
-      <Header />
-      <MobileMenu/>
-      <BackgroundVideo />
-      <Services></Services>
-      <Results></Results>
-      <MedicalWard></MedicalWard>
-      <Clinics></Clinics>
-      <Consultation></Consultation>
-      <FAQ></FAQ>
-      <Footer></Footer>
-    </>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Main />}></Route>
+        <Route path="prices" element={<Prices />}></Route>
+        <Route path="*" element={<Prices />}></Route>
+      </Route>
+    </Routes>
   )
 }

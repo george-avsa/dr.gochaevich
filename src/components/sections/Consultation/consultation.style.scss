@@ -11,6 +11,10 @@
     }
 
     background: var(--white);
+    
+    &--grey {
+        background: #F5F6F8;
+    }
 
     &__content {
         @include container();
