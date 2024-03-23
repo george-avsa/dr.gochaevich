@@ -3,13 +3,20 @@ import LogoIcon from './../../../assets/icons/logo.svg';
 import ContactInfo from '../../ui/ContactInfo/ContactInfo';
 import Button from '../../ui/Button/Button';
 import { navigationItems } from '../../blocks/Navigation/Navigation';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
 
+  const navigate = useNavigate();
+
   const handleNavigationClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const idToScroll = e.currentTarget.dataset.idtoscroll;
-    const elementToScroll = document.querySelector(`#${idToScroll}`) as HTMLElement;
-    elementToScroll.scrollIntoView({ behavior: "smooth", block: (idToScroll === 'faq') ? "start" : 'end', inline: "nearest" });
+    const elementToScroll = document.querySelector(`#${idToScroll}`);
+    if (elementToScroll) {
+      elementToScroll.scrollIntoView({ behavior: "smooth", block: (idToScroll === 'faq') ? "start" : 'end', inline: "nearest" });
+    } else {
+      navigate(`/#${idToScroll}`);
+    }
   }
 
   return (

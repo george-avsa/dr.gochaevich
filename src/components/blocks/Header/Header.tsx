@@ -5,19 +5,26 @@ import Button from '../../ui/Button/Button';
 import Burger from '../../ui/Burger/Burger';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+
+  const navigate = useNavigate();
 
   const mobileMenuVisibility = useSelector((state: RootState) => state.uiStates.mobileMenu);
 
   const handleNavigationClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const idToScroll = e.currentTarget.dataset.id;
-    const elementToScroll = document.querySelector(`#${idToScroll}`) as HTMLElement;
-    elementToScroll.scrollIntoView({ 
-      behavior: "smooth", 
-      block: idToScroll === 'footer' ? 'end' : "start", 
-      inline: "nearest"
-    });
+    const elementToScroll = document.querySelector(`#${idToScroll}`);
+    if (elementToScroll) {
+      elementToScroll.scrollIntoView({ 
+        behavior: "smooth", 
+        block: idToScroll === 'footer' ? 'end' : "start", 
+        inline: "nearest"
+      });
+    } else {
+      navigate(`/#${idToScroll}`);
+    }
   }
 
   return (

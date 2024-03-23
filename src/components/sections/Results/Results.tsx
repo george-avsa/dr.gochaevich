@@ -1,15 +1,15 @@
 import React from 'react';
 import TittleButton from '../../ui/TittleButton/TittleButton';
 import BlockTittle from '../../ui/BlockTittle/BlockTittle';
-import ResultBg from './../../../assets/images/services/png/servicesBg.png';
+import ResultBg from './../../../assets/images/services/webp/servicesBg.webp';
 
-import resultsEye from './../../../assets/images/services/png/eye.png';
-import resultStar from './../../../assets/images/services/png/star.png';
-import resultFlower from './../../../assets/images/services/png/flower.png';
-import resultIphonesMobile from './../../../assets/images/services/png/iphones-mobile.png';
-import resultIphones from './../../../assets/images/services/png/iphones.png';
+import resultsEye from './../../../assets/images/services/webp/eye.webp';
+import resultStar from './../../../assets/images/services/webp/star.webp';
+import resultFlower from './../../../assets/images/services/webp/flower.webp';
+import resultIphonesMobile from './../../../assets/images/services/webp/iphones-mobile.webp';
+import resultIphones from './../../../assets/images/services/webp/iphones.webp';
 
-import resultVizualisation from './../../../assets/images/services/png/vizualisation.png';
+import resultVizualisation from './../../../assets/images/services/webp/vizualisation.webp';
 import SwiperButton from '../../ui/SwiperButton/SwiperButton';
 
 type Advantage = {
@@ -102,7 +102,7 @@ export default function Results() {
           </p>
           <div className="results-block__bg">
             <picture>
-              <source media="(min-width: 500px)" srcSet={resultIphones} type='image/png' />
+              <source media="(min-width: 500px)" srcSet={resultIphones} type='image/webp' />
               <img src={resultIphonesMobile} alt="" />
             </picture>
           </div>

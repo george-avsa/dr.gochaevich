@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import chestImage from './../assets/images/services/png/chest.png';
-import bodyImage from './../assets/images/services/png/body.png';
-import stomachImage from './../assets/images/services/png/stomach.png';
-import blefaroplastyImage from './../assets/images/services/png/blefaroplasty.png';
+import chestImage from './../assets/images/services/webp/chest.webp';
+import bodyImage from './../assets/images/services/webp/body.webp';
+import stomachImage from './../assets/images/services/webp/stomach.webp';
+import blefaroplastyImage from './../assets/images/services/webp/blefaroplasty.webp';
 
 export type ServiceImage = {
     type: string,

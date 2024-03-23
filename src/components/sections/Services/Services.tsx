@@ -3,6 +3,7 @@ import Logo from './../../../assets/icons/logo.svg';
 import ServicesBackgorunds from '../../blocks/ServicesBackgorunds/ServicesBackgorunds';
 import ServiceList from '../../blocks/ServiceList/ServiceList';
 import ServicesBackgorundMobile from '../../blocks/ServicesBackground/ServicesBackgorundMobile';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
   return (
@@ -16,6 +17,11 @@ export default function Services() {
           </h3>
           <ServicesBackgorundMobile></ServicesBackgorundMobile>
           <ServiceList></ServiceList>
+          <Link to='/prices'>
+            <div className="services__button">
+              Все услуги
+            </div>
+          </Link>
         </div>
       </div>
     </div>

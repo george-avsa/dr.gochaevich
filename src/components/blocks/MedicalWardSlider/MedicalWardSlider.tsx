@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import React from 'react';
 import WardIcon from './../../../assets/icons/ward.svg';
 import WardCardButton from '../../ui/WardCardButton/WardCardButton';
-import MedicalCard1 from './../../../assets/images/medical-ward/png/medical-ward1.png';
+import MedicalCard1 from './../../../assets/images/medical-ward/webp/medical-ward1.webp';
 import {Autoplay} from 'swiper/modules';
 
 import 'swiper/css';
