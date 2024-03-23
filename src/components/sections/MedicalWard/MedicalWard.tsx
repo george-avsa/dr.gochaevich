@@ -2,7 +2,7 @@ import React from 'react';
 import TittleButton from '../../ui/TittleButton/TittleButton';
 import BlockTittle from '../../ui/BlockTittle/BlockTittle';
 import MedicalWardSlider from '../../blocks/MedicalWardSlider/MedicalWardSlider';
-import BgImage from './../../../assets/images/medical-ward/png/bg.png';
+import BgImage from './../../../assets/images/medical-ward/webp/bg.webp';
 
 export default function MedicalWard() {
 

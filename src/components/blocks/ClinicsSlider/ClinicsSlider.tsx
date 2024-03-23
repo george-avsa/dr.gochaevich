@@ -1,8 +1,8 @@
 import React from 'react';
-import ZhukovkaImage from './../../../assets/images/clinics/png/zhukovka_clinic.png';
-import iphkImage from './../../../assets/images/clinics/png/iphk_clinic.png';
+import ZhukovkaImage from './../../../assets/images/clinics/webp/zhukovka_clinic.webp';
+import iphkImage from './../../../assets/images/clinics/webp/iphk_clinic.webp';
 import LocationIcon from './../../../assets/icons/locationDark.svg';
-import ZurabImage from '../../../assets/images/clinics/png/zhukovka_mobile.png';
+import ZurabImage from '../../../assets/images/clinics/webp/zhukovka_mobile.webp';
 
 type Clinic = {
   name: string | JSX.Element,

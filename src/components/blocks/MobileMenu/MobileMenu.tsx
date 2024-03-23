@@ -12,6 +12,7 @@ function toPX(value: string) {
 import gsap from 'gsap';
 import { navigationItems } from '../Navigation/Navigation';
 import { toggleMobileMenu } from '../../../store/uiStates';
+import { useNavigate } from 'react-router-dom';
 
 export default function MobileMenu() {
 
@@ -20,6 +21,8 @@ export default function MobileMenu() {
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   const [initial, setInitial] = useState<boolean>(false);
+  
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -50,7 +53,11 @@ export default function MobileMenu() {
     dispatch(toggleMobileMenu());
     const idToScroll = e.currentTarget.dataset.idtoscroll;
     const elementToScroll = document.querySelector(`#${idToScroll}`) as HTMLElement;
-    elementToScroll.scrollIntoView({ behavior: "smooth", block: (idToScroll === 'faq') ? "start" : 'end', inline: "nearest" });
+    if (elementToScroll) {
+      elementToScroll.scrollIntoView({ behavior: "smooth", block: (idToScroll === 'faq') ? "start" : 'end', inline: "nearest" });
+    } else {
+      navigate(`/#${idToScroll}`);
+    }
   }
 
   return (

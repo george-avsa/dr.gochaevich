@@ -2,9 +2,9 @@ import React from 'react';
 import BlockTittle from '../../ui/BlockTittle/BlockTittle';
 import TittleButton from '../../ui/TittleButton/TittleButton';
 import SwiperButton from '../../ui/SwiperButton/SwiperButton';
-import Image from './../../../assets/images/consultation/png/consultation.png';
-import ImageMd from './../../../assets/images/consultation/png/consultation-md.png';
-import ImageSm from './../../../assets/images/consultation/png/consultation-xs.png';
+import Image from './../../../assets/images/consultation/webp/consultation.webp';
+import ImageMd from './../../../assets/images/consultation/webp/consultation-md.webp';
+import ImageSm from './../../../assets/images/consultation/webp/consultation-xs.webp';
 
 export default function Consultation(props: {color?: string}) {
   return (
@@ -32,8 +32,8 @@ export default function Consultation(props: {color?: string}) {
       </div>
         <div className='consultation__bg'>
           <picture>
-            <source media="(min-width: 1280px)" srcSet={Image} type='image/png' />
-            <source media="(min-width: 767px)" srcSet={ImageMd} type='image/png' />
+            <source media="(min-width: 1280px)" srcSet={Image} type='image/webp' />
+            <source media="(min-width: 767px)" srcSet={ImageMd} type='image/webp' />
             <img src={ImageSm} alt="" />
           </picture>
         </div>

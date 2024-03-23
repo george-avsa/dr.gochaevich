@@ -1,6 +1,8 @@
 import React from 'react'
-import mp4 from './../../../assets/videos/background-video.mp4';
 import SwiperButton from '../SwiperButton/SwiperButton';
+
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import Video from '../Video/Video';
 
 export default function BackgroundVideo() {
 
@@ -11,9 +13,9 @@ export default function BackgroundVideo() {
 
   return (
     <div className='background-video'>
-        <video className='background-video__video' src={mp4} autoPlay muted={true} loop playsInline>
-            <source src="movie.mp4" type="video/mp4" />
-        </video>
+        <LazyLoadComponent>
+          <Video></Video>
+        </LazyLoadComponent>
         <div className='background-video__content'>
           <h1 className='background-video__title'>
             <span>Хирургически точное</span>

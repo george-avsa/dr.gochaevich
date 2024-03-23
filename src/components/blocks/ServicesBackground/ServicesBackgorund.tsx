@@ -23,7 +23,7 @@ export default function ServicesBackgorund({service}: ServiceBackgorund) {
         
         const leftImg = Number.parseInt(getComputedStyle(imgElement).left) || 0;
         bgElement.style.left = `${(40 + leftContent) - leftImg}px`;
-      }, 2);
+      }, 500);
     }
 
     placeBackgorund();

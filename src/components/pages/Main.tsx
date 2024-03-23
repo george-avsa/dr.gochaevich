@@ -7,6 +7,7 @@ import Clinics from '../sections/Clinics/Clinics'
 import FAQ from '../sections/FAQ/Faq'
 import Consultation from '../sections/Consultation/Consultation'
 import { useLocation } from 'react-router-dom'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 
 export default function Main() {
 
@@ -27,7 +28,9 @@ export default function Main() {
         <Results></Results>
         <MedicalWard></MedicalWard>
         <Clinics></Clinics>
-        <FAQ></FAQ>
+        <LazyLoadComponent>
+          <FAQ></FAQ>
+        </LazyLoadComponent>
         <Consultation color='grey'></Consultation>
     </>
   )
