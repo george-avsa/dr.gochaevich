@@ -1,31 +1,30 @@
-import React from 'react'
-import LogoIcon from './../../../assets/icons/logo.svg';
-import BlockTittle from '../../ui/BlockTittle/BlockTittle';
-import ZurabImage from '../../../assets/images/clinics/png/zurab.png';
-import ClinicsSlider from '../../blocks/ClinicsSlider/ClinicsSlider';
+import React, { useContext } from "react";
+import LogoIcon from "./../../../assets/icons/logo.svg";
+import BlockTittle from "../../ui/BlockTittle/BlockTittle";
+import ZurabImage from "../../../assets/images/clinics/png/zurab.png";
+import ClinicsSlider from "../../blocks/ClinicsSlider/ClinicsSlider";
+import { Context } from "../../..";
 
 export default function Clinics() {
+  const { clinicScreen } = useContext(Context);
+
   return (
-    <div className='clinics' id='clinics'>
+    <div className="clinics" id="clinics">
       <div className="clinics__bg">
-        <img src={ZurabImage} alt="" />
+        <img
+          src={`${process.env.REACT_APP_BASE_URL}/${clinicScreen?.zurab_image?.url}`}
+          alt=""
+        />
       </div>
       <div className="clinics__content">
-        <LogoIcon style={{color: '#3E4041'}} />
-        <BlockTittle className='clinics__tittle'>
-            <>Ведущий хирург</>
+        <LogoIcon style={{ color: "#3E4041" }} />
+        <BlockTittle className="clinics__tittle">
+          <>{clinicScreen.title_row1}</>
         </BlockTittle>
-        <h2 className='clinics__name'>
-          Авсаджанишвили Зураб Гочаевич
-        </h2>
-        <p className='clinics__description'>
-          «Я стремлюсь к тому, чтобы ввести душу и тело в гармонию через создание идеальных 
-          ощущений от своего тела, что, в свою очередь, помогает обрести внутреннее согласие. 
-          Моя миссия заключается в том, чтобы совершенствование физической гармонии стало ключом 
-          к  внутреннему равновесию»
-        </p>
+        <h2 className="clinics__name">{clinicScreen.title_row2}</h2>
+        <p className="clinics__description">{clinicScreen.description}</p>
         <ClinicsSlider></ClinicsSlider>
       </div>
     </div>
-  )
+  );
 }
