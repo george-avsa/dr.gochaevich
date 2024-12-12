@@ -17,6 +17,7 @@ import {
   RoomScreen,
   ServiceScreen,
   Taplink,
+  Video,
   VisualizationScreen,
 } from "./types";
 
@@ -38,6 +39,7 @@ enum REQUESTS {
   VISUALIZATION_SCREEN = "visualization-screen",
   TAPLINKS = "taplinks",
   PRICES = "prices",
+  VIDEOS = "video",
 }
 
 interface RequestData<T> {
@@ -111,6 +113,10 @@ const request: Record<REQUESTS, RequestData<any>> = {
     url: "/api/taplinks?populate=*",
     type: {} as Taplink[],
   },
+  [REQUESTS.VIDEOS]: {
+    url: "/api/videos?populate=*",
+    type: {} as Video[],
+  },
 };
 
 export interface State {
@@ -131,6 +137,7 @@ export interface State {
   serviceScreen: ServiceScreen;
   visualizationScreen: VisualizationScreen;
   taplinks: Taplink[];
+  videos: Video[];
 }
 
 async function fetchDynamicUrls(): Promise<State> {
@@ -156,6 +163,7 @@ async function fetchDynamicUrls(): Promise<State> {
   const serviceScreen: ServiceScreen = responses[14].data.data;
   const visualizationScreen: VisualizationScreen = responses[15].data.data;
   const taplinks: Taplink[] = responses[16].data.data;
+  const videos: Video[] = responses[17].data.data;
 
   return {
     clinicsData,
@@ -175,6 +183,7 @@ async function fetchDynamicUrls(): Promise<State> {
     serviceScreen,
     visualizationScreen,
     taplinks,
+    videos,
   };
 }
 

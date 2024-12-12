@@ -10,7 +10,7 @@ export default function ServicesBackgorund({ service }: ServiceBackgorund) {
   const imgRef = useRef<HTMLInputElement>(null);
   const bgRef = useRef<HTMLInputElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     function placeBackgorund() {
       setTimeout(() => {
         const contentElement = document.querySelector(
@@ -20,12 +20,15 @@ export default function ServicesBackgorund({ service }: ServiceBackgorund) {
         const bgElement = bgRef.current as HTMLElement;
         const imgElement = imgRef.current as HTMLElement;
 
-        const leftContent =
-          Number.parseInt(getComputedStyle(contentElement).marginLeft) || 0;
+        if (contentElement && imgElement) {
+          const leftContent =
+            Number.parseInt(getComputedStyle(contentElement)?.marginLeft) || 0;
 
-        const leftImg = Number.parseInt(getComputedStyle(imgElement).left) || 0;
-        bgElement.style.left = `${40 + leftContent - leftImg}px`;
-      }, 500);
+          const leftImg =
+            Number.parseInt(getComputedStyle(imgElement).left) || 0;
+          bgElement.style.left = `${40 + leftContent - leftImg}px`;
+        }
+      }, 1000);
     }
 
     placeBackgorund();

@@ -1,3 +1,34 @@
+export interface Video {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  src: VideoSrc;
+}
+
+export interface VideoSrc {
+  id: number;
+  documentId: string;
+  name: string;
+  alternativeText: any;
+  caption: any;
+  width: any;
+  height: any;
+  formats: any;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: any;
+  provider: string;
+  provider_metadata: any;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
 export interface Clinic {
   id: number;
   documentId: string;

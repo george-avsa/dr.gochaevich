@@ -13,17 +13,17 @@ import TittleButton from "../../ui/TittleButton/TittleButton";
 import { Context } from "../../..";
 
 export default function FAQ() {
-  const videos = [
-    "video_2024-03-17_18-51-45.mp4",
-    "video_2024-03-19_09-38-01.mp4",
-    "video_2024-03-19_09-38-14.mp4",
-    "video_2024-03-19_09-38-18.mp4",
-    "video_2024-03-19_09-38-20.mp4",
-    "video_2024-03-19_09-38-26.mp4",
-    "video_2024-03-19_09-38-29.mp4",
-    "video_2024-03-19_09-38-32.mp4",
-    "video_2024-03-19_09-38-35.mp4",
-  ];
+  // const videos = [
+  //   "video_2024-03-17_18-51-45.mp4",
+  //   "video_2024-03-19_09-38-01.mp4",
+  //   "video_2024-03-19_09-38-14.mp4",
+  //   "video_2024-03-19_09-38-18.mp4",
+  //   "video_2024-03-19_09-38-20.mp4",
+  //   "video_2024-03-19_09-38-26.mp4",
+  //   "video_2024-03-19_09-38-29.mp4",
+  //   "video_2024-03-19_09-38-32.mp4",
+  //   "video_2024-03-19_09-38-35.mp4",
+  // ];
 
   const activeVideoRef = useRef<HTMLMediaElement | null>(null);
 
@@ -46,7 +46,7 @@ export default function FAQ() {
   const swiperRef = useRef<SwiperElement | null>(null);
   const swiperElementRef = useRef<HTMLElement | null>(null);
 
-  const { faqSqreen } = useContext(Context);
+  const { faqSqreen, videos } = useContext(Context);
 
   return (
     <div className="faq" id="faq">
@@ -100,7 +100,7 @@ export default function FAQ() {
           <Arrow />
         </div>
         {videos.map((video) => (
-          <SwiperSlide className="faq__slide" key={video}>
+          <SwiperSlide className="faq__slide" key={video.id}>
             <div className="faq__video">
               <div className="faq__video-dummy" onClick={handleVideoClick}>
                 <div
@@ -112,7 +112,7 @@ export default function FAQ() {
                 </div>
               </div>
               <video
-                src={`/reels/${video}`}
+                src={`${process.env.REACT_APP_BASE_URL}/${video.src.url}`}
                 autoPlay={false}
                 loop
                 playsInline

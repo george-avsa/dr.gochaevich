@@ -385,6 +385,7 @@ export const defaultState: State = {
     },
   },
   taplinks: [],
+  videos: [],
 };
 
 export const Context = React.createContext<State>(defaultState);
